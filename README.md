@@ -29,3 +29,36 @@ This project demonstrates how to **securely deploy an AI inference API** on AWS 
 ## 📁 Project Structure
 
 
+ai-secure-api/
+├── infra/ # Terraform code
+├── app/ # FastAPI app and model server
+├── Dockerfile # Container for FastAPI app
+├── .env.example # Sample environment variables
+└── README.md # This file
+
+yaml
+Copy
+Edit
+
+---
+
+## 🧱 Infrastructure (Terraform)
+
+- VPC with `10.0.0.0/16` CIDR
+- Public subnet with internet access (`10.0.1.0/24`)
+- Internet Gateway + Route Table
+- Security Group allowing HTTPS (port 443)
+- EC2 instance with optional IAM role
+- S3 bucket for model storage/logging
+
+---
+
+## 🚀 Deployment Steps
+
+1. Clone this repo  
+2. Configure AWS CLI  
+3. Set up infrastructure:
+   ```bash
+   cd infra
+   terraform init
+   terraform apply
